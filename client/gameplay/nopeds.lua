@@ -31,7 +31,11 @@ Citizen.CreateThread(function()
 		EnableDispatchService(13,false)
 		EnableDispatchService(14,false)
 		EnableDispatchService(15,false)
-
+		
+		if GetPlayerWantedLevel(PlayerId()) ~= 0 then
+				SetPlayerWantedLevel(PlayerId(), 0, false)
+				SetPlayerWantedLevelNow(PlayerId(), false)
+		end
 		Citizen.Wait(1)
 	end
 end)
@@ -113,7 +117,7 @@ Citizen.CreateThread(function()
 					DeletePed(ped)
 				end
 			end
-			
+
 		until not finished
 		EndFindPed(handle)
 		Citizen.Wait(60000)
