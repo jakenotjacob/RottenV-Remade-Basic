@@ -93,7 +93,7 @@ Citizen.CreateThread(function()
 			infected = false
 			consumableItems.count[1] = 1.0
 			consumableItems.count[2] = 1.0
-			StatSetInt("STAMINA", 40,1)
+			StatSetInt("MP0_STAMINA", 40,1)
 
 			-- this is debug code
 			--[[
