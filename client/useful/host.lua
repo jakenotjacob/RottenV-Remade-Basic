@@ -1,15 +1,10 @@
 function DistanceBetweenCoords(x1,y1,z1,x2,y2,z2)
 	local dist = Vdist2(x1,y1,z1,x2,y2,z2)
-
 	return dist
 end
 
 function DistanceBetweenCoords2D(x1,y1,x2,y2)
-	
-
 	dist = Vdist2(x1,y1,0,x2,y2,0)
-	
-
 	return dist
 end
 
