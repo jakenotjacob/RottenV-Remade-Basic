@@ -1,10 +1,18 @@
 function DistanceBetweenCoords(x1,y1,z1,x2,y2,z2)
-	local dist = Vdist2(x1,y1,z1,x2,y2,z2)
+	local deltax = x1 - x2
+	local deltay = y1 - y2
+	local deltaz = z1 - z2
+
+	local dist = math.sqrt((deltax * deltax) + (deltay * deltay) + (deltaz * deltaz))
 	return dist
 end
 
 function DistanceBetweenCoords2D(x1,y1,x2,y2)
-	local dist = Vdist2(x1,y1,0,x2,y2,0)
+	local deltax = x1 - x2
+	local deltay = y1 - y2
+
+	dist = math.sqrt((deltax * deltax) + (deltay * deltay))
+
 	return dist
 end
 
