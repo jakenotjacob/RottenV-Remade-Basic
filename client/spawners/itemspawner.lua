@@ -284,15 +284,17 @@ Citizen.CreateThread(function()
 
 		-- Distance
 		for i, pickupInfo in pairs(localPickups) do
-			local posX,posY,posZ = table.unpack(GetEntityCoords(PlayerPedId(), true))
-			if DistanceBetweenCoords(posX, posY, posZ, pickupInfo.x, pickupInfo.y, pickupInfo.z) > 300.0 then
-				TriggerServerEvent("removePickup", pickupInfo, "pickup too far, deleting\n")
-				Citizen.Trace("pickup too far, deleting: " .. table.tostring(pickupInfo))
-				table.remove(localPickups, i)
-				if pickupInfo.pickupItem ~= nil then
-					localFood = localFood - 1
-				else
-					localWeapons = localWeapons - 1
+			if pickupInfo then
+				local posX,posY,posZ = table.unpack(GetEntityCoords(PlayerPedId(), true))
+				if DistanceBetweenCoords(posX, posY, posZ, pickupInfo.x, pickupInfo.y, pickupInfo.z) > 300.0 then
+					TriggerServerEvent("removePickup", pickupInfo, "pickup too far, deleting\n")
+					Citizen.Trace("pickup too far, deleting: " .. table.tostring(pickupInfo))
+					table.remove(localPickups, i)
+					if pickupInfo.pickupItem ~= nil then
+						localFood = localFood - 1
+					else
+						localWeapons = localWeapons - 1
+					end
 				end
 			end
 		end
